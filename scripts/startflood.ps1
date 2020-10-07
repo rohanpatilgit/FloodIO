@@ -12,7 +12,7 @@
 $access_token = $env:MY_FLOOD_TOKEN
 $api_url = "https://api.flood.io"
 $script_path = 'scripts/jmeter/Touchpoint.jmx'
-$flood_project = 'Flood Demo'
+$flood_project = 'Flood_Demo'
 $flood_name = 'myAzureTest'
 
 #Setup the API URI that contains all parameters required to start a Grid, Flood and test settings.
