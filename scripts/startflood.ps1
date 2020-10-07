@@ -11,7 +11,7 @@
 #Declare some variables and input parameters
 $access_token = $env:MY_FLOOD_TOKEN
 $api_url = "https://api.flood.io"
-$script_path = 'scripts/jmeter/jmeter_1000rpm.jmx'
+$script_path = 'scripts/jmeter/Touchpoint.jmx'
 $flood_project = 'azure-devops'
 $flood_name = 'myAzureTest'
 
@@ -34,7 +34,7 @@ $LF = "`r`n";
 $contentType = "multipart/form-data; boundary=`"$boundary`""
 $payload = (
     "--$boundary",
-    "Content-Disposition: form-data; name=`"flood_files[]`"; filename=`"jmeter_1000rpm.jmx`"",
+    "Content-Disposition: form-data; name=`"flood_files[]`"; filename=`"Touchpoint.jmx`"",
     "Content-Type: application/octet-stream$LF",
     $fileEnc,
     "--$boundary--$LF"
