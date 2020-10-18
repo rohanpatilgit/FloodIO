@@ -39,8 +39,6 @@ public class Bing {
     while( iterations < 50 ) {
       try {
 
-        
-
         driver.get("https://www.bing.com/?cc=de/");
         /* Log a passed transaction in Flood IO */
         flood.passed_transaction(driver, "Website front page loaded successfully.", 200, 200.0);
@@ -50,16 +48,6 @@ public class Bing {
         by = By.cssSelector("#sb_form_q");
         typeTextIfVisibleWeb = (VisibleElementsOperations.TypeTextIfVisibleWeb)((ReportingDriver)driver).addons().execute(typeTextIfVisibleWeb, by, -1);
         flood.passed_transaction(driver,"");
-
-    
-        by = By.xpath("//label/*");
-        driver.findElement(by).click();
-        flood.passed_transaction(driver,"");
-
-    
-        by = By.xpath("//a/strong[. = 'Test']");
-        driver.findElement(by).click();
-        flood.passed_transaction(driver, "");
 
         iterations++;
 
