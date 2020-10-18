@@ -19,10 +19,10 @@ import io.flood.selenium.FloodSump;
 import java.util.List;
 import java.util.Random;
 
-public class Bear  {
+public class Bing {
   public static void main(String[] args) throws Exception {
     int iterations = 0;
-
+    By by;
     /* Create a new instance of the html unit driver
        Notice that the remainder of the code relies on the interface,
        not the implementation. */
@@ -36,27 +36,30 @@ public class Bear  {
     flood.started();
 
     /* It's up to you to control test duration / iterations programatically. */
-    while( iterations < 100 ) {
+    while( iterations < 50 ) {
       try {
-      By by;
+
         
-        driver.get("https://www.bing.com/?cc=de");
+
+        driver.get("https://www.bing.com/?cc=de/");
         /* Log a passed transaction in Flood IO */
         flood.passed_transaction(driver, "Website front page loaded successfully.", 200, 200.0);
         
-        /* 2. Type 'Test' in 'sb_form_q' if visible */
+           
         typeTextIfVisibleWeb = VisibleElementsOperations.typeTextIfVisibleWeb("Test","");
         by = By.cssSelector("#sb_form_q");
         typeTextIfVisibleWeb = (VisibleElementsOperations.TypeTextIfVisibleWeb)((ReportingDriver)driver).addons().execute(typeTextIfVisibleWeb, by, -1);
+        flood.passed_transaction(driver,"");
 
-        /* 3. Click 'svg'  */
+    
         by = By.xpath("//label/*");
         driver.findElement(by).click();
+        flood.passed_transaction(driver,"");
 
-        /* 4. Click 'Test' */
+    
         by = By.xpath("//a/strong[. = 'Test']");
         driver.findElement(by).click();
-        
+        flood.passed_transaction(driver, "");
 
         iterations++;
 
